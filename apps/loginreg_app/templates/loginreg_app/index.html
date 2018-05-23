@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wishlist Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+<style>
+    .inline{
+        display: inline-block;
+        vertical-align: top;
+        
+    }
+    .box1{
+        border: 2px solid blue;
+        padding: 4px;
+        height: 300px;
+    }
+    .box2{
+        border: 2px solid blue;
+        padding: 4px;
+        height: 180px;
+    }
+</style>
+</head>
+<body>
+    <h2>Welcome!</h2>
+    <div class="inline">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h3>Register</h3>
+        <form class="box1" action="/processReg" method="POST">
+            {% csrf_token %}
+            <p>Name: <input type="text" name="name" value=""></p>
+            <p>Username: <input type="text" name="username" value=""></p>
+            <p>Password: <input type="password" name="password" value=""></p>
+            <p>Confirm Password: <input type="password" name="confirmpw" value=""></p>
+            <p>Date Hired: </p> <input type="date" name="datehired" value="">
+            <p><input type="submit" name="" value="Register"></p>
+        </form>
+    </div>
+    <div class="inline">
+        <h3>Login</h3>
+        <form form class="box2" action="/processLogin" method="POST"> 
+        {% csrf_token %}
+        <p>Username: <input type="text" name="username" value=""></p>
+        <p>Password: <input type="password" name="password" value=""></p>
+        <input type="submit" name="" value="Login">
+        </form>
+    </div>
+</body>
+</html>

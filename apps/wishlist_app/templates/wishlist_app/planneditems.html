@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Planned Items</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<style>
+    .right{
+        display: inline-block;
+        float: right;
+    }
+</style>
+<body>
+    <div class="right"> <a href="/wishlist_app">Home</a> <a href="/logout">Logout</a></div>
+    <h1>Item {{item.id}}</h1>
+    <tr>
+            <td>Item added by: {{ wishlist_item.item_creator.name}}</td><br>
+    </tr>
+    <br>
+    <br>
+    <h2>Other user's with this item on their Wishlist!:</h2>
+    {% for wantingtobuy in wantingtobuys %}
+    <p>{{wantingtobuy.name}}</p>
+    {% endfor %}
+
+</body>
+</html>

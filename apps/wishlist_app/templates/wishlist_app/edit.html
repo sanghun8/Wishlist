@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Edit User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<style>
+    *{
+        margin: 0px;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <h1>Edit user!</h1>
+    <form action="/update/{{user.id}}" method="POST">
+        {% csrf_token %}
+        <p>First Name:</p> <input type="text" name="first_name" value="{{ user.first_name }}">
+        <p>Last Name:</p> <input type="text" name="last_name" value="{{user.last_name}}">
+        <p>Email: </p> <input type="text" name="email" value="{{ user.email }}">
+        <br>
+        <input type="submit" name="" value="Update">
+    </form>
+    <br>
+    <form action="/goback" method="POST">
+        {% csrf_token %}
+            <input type="submit" name="goback" value="Go back">
+            <br>
+    </form>
+    <form action="/clear" method="POST">
+        {% csrf_token %}
+            <input type="submit" name="clear" value="Clear session">
+            <br>
+    </form>
+</body>
+</html>
